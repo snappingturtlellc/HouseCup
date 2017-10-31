@@ -78,3 +78,9 @@ npm install font-awesome --save
 // add to angular-cli.json -> styles
 "../node_modules/font-awesome/css/font-awesome.css"
 
+// set up git
+git init
+git add .
+git commit -m "First commit"
+git remote add origin https://github.com/snappingturtlellc/HouseCup.git
+git push -u origin master
