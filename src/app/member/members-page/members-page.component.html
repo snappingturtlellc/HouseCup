@@ -1,0 +1,8 @@
+<div>  
+  <div *ngFor="let member of (members$ | async); let index = index;" class="list-with-buttons" (click)="showMenu(index)" [ngClass]="{'menu-active': selectedIndex==index}">
+    <div>
+      {{member.name}} ({{member.initials}})
+    </div><div (click)="delete(member)" class="button delete">delete</div><div (click)="edit(member)" class="button edit">edit</div>
+  </div>
+</div>
+<button (click)="add()">Add</button>

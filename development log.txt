@@ -1,0 +1,80 @@
+// firebase
+firebase: {
+    apiKey: "AIzaSyCyn3X5tprcfaKhdS_ip0s4n1GATNxvRu0",
+    authDomain: "house-cup-feafa.firebaseapp.com",
+    databaseURL: "https://house-cup-feafa.firebaseio.com",
+    projectId: "house-cup-feafa",
+    storageBucket: "house-cup-feafa.appspot.com",
+    messagingSenderId: "999513732783"
+}
+
+// create a new angular project
+ng new HouseCup --routing --style scss --prefix gls
+
+// add firepage packages
+npm install firebase --save
+npm install angularfire2@4.0.0-rc.2 --save
+
+// create classes
+ng g class shared/class/user
+ng g class shared/class/account
+ng g class shared/class/member
+ng g class shared/class/team
+ng g class shared/class/challenge
+
+// create services
+ng g service shared/service/auth
+ng g service shared/service/user
+ng g service shared/service/account
+
+ng g service shared/service/member
+ng g service shared/service/team
+ng g service shared/service/challenge
+
+// create auth components (signup, signin)
+ng g component auth/signup-page
+ng g component auth/signin-page
+
+// subscribe to firebase authState
+this.afAuth.authState.subscribe((auth) => {
+
+// create user CRUD packages
+ng g component user/users-page 
+ng g component user/user-details-page 
+
+ng g component account/accounts-page 
+ng g component account/account-details-page 
+
+ng g component member/members-page 
+ng g component member/member-details-page 
+
+ng g component team/teams-page 
+ng g component team/team-details-page 
+
+ng g component challenge/challenges-page 
+ng g component challenge/challenge-details-page 
+
+// add imports to app.module.ts
+FormsModule,
+AngularFireModule.initializeApp(environment.firebase),
+AngularFireAuthModule
+
+// add providers to app.module.ts
+AngularFireDatabase,
+AuthService,
+UserService,
+AccountService,
+MemberService,
+TeamService,
+ChallengeService    
+
+// custom font
+npm install roboto-fontface --save
+// add to angular-cli.json -> styles
+"../node_modules/roboto-fontface/css/roboto/roboto-fontface.css"
+
+// add fontawesome
+npm install font-awesome --save
+// add to angular-cli.json -> styles
+"../node_modules/font-awesome/css/font-awesome.css"
+

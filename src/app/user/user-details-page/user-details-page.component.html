@@ -1,0 +1,19 @@
+<h1>User</h1>
+<div>{{userId}}</div>
+<div>
+  <form>
+    <div>
+      <input type="text" name="name" placeholder="name" [(ngModel)]="user.name">
+    </div>
+    <div *ngIf="isNew">
+      <input type="text" name="email" placeholder="email" [(ngModel)]="user.email">
+    </div>
+    <div *ngIf="!isNew">
+      {{user.email}}
+    </div>
+    <div>
+      <button (click)="add()" *ngIf="isNew">add</button>
+      <button (click)="edit()" *ngIf="!isNew">edit</button>
+    </div>
+  </form>
+</div>

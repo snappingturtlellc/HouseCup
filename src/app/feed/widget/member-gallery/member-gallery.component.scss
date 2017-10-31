@@ -1,0 +1,15 @@
+.member-gallery {
+    display: flex;
+    padding: .5em;
+    background: #fff;
+    &>div {
+        border-radius: 50%;
+        background: #ccc;
+        width: 3em;
+        height: 3em;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-right: .5em;
+    }
+}

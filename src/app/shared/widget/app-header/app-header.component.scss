@@ -1,0 +1,33 @@
+@import 'colors';
+
+#app-header {
+    background: $header-background;// #611919;
+    color: white;
+    display: flex;
+    &>div {
+        display: flex;
+        align-items: center;
+        padding-top: .5em;
+        padding-bottom: .5em;
+    }
+    &>div:nth-child(1) {
+        flex: 33%;
+        // background: green;
+        justify-content: flex-start;
+        padding-left: .5em;
+    }
+    &>div:nth-child(2) {
+        flex: 33%;
+        font-size: 1.5em;
+        i.fa {
+            display: none;
+        }
+        justify-content: center;
+    }
+    &>div:nth-child(3) {
+        flex: 33%;
+        // background: red;
+        justify-content: flex-end;
+        padding-right: .5em;
+    }
+}

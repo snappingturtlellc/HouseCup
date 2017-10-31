@@ -1,0 +1,16 @@
+<h1>Member</h1>
+<div>{{memberId}}</div>
+<div>
+  <form>
+    <div>
+      <input type="text" name="name" placeholder="name" [(ngModel)]="member.name">
+    </div>
+    <div>
+      <input type="text" name="initials" placeholder="initals" [(ngModel)]="member.initials">
+    </div>
+    <div>
+      <button (click)="add()" *ngIf="isNew">add</button>
+      <button (click)="edit()" *ngIf="!isNew">edit</button>
+    </div>
+  </form>
+</div>

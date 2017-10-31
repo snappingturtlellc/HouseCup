@@ -1,0 +1,8 @@
+<h1>Users</h1>
+<ul>
+    <!-- [class.done]="todo.done" -->
+    <li *ngFor="let user of (users$ | async)">
+      {{ user.name }}, {{ user.email }} <button (click)="delete(user)">delete</button> <button (click)="edit(user)">edit</button>
+    </li>
+  </ul>
+  <button (click)="add()">Add</button>
