@@ -1,44 +1,26 @@
-// import { IFirebaseOutput } from "app/shared/model/firebase-output";
+import { IHouse } from "./house";
 
 export interface IUser {
     $key: string;
     name: string;
     email: string;
+    _housesRef: any;
+    $houses: any[];
 }
 
-export interface IFirebaseOutput {
-  toFirebase(): any;
-}
-
-export class BaseObject {
-    toFirebase(): any {
-        return {};
-    }
-}
-
-export class User implements IUser, BaseObject
-//, IFirebaseOutput 
+export class User implements IUser
 {
     $key: string;
     name: string;
     email: string;
+    _housesRef: any = {};
+    $houses: any[] = [];
+
     constructor(p) {
         this.$key = p.$key || '';
         this.name = p.name || '';
         this.email = p.email || '';
-    }
-    toFirebase(): any {
-        return {
-            'name': this.name,
-            'email': this.email
-        }
+        this._housesRef = p._housesRef || {};
     }
 }
-
-//   toFirebase(): any {
-//     return {
-//       'name': this.name,
-//       'email': this.email
-//     }
-//   }
 

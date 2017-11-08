@@ -1,3 +1,42 @@
-<p>
-  challenge-details-page works!
-</p>
+<div class="form-input-page">
+  <div>
+    <h1>Challenge</h1>
+    <div>
+      <form>
+        <div>
+          <label>Name</label>
+          <input type="text" name="name" placeholder="" [(ngModel)]="challenge.name">
+        </div>
+        <div>
+          <label>Description</label>
+          <input type="text" name="description" placeholder="" [(ngModel)]="challenge.description">
+        </div>
+        <div>
+          <label>Start</label>
+          <div>
+            <div>
+              {{challenge.startDate}}</div>
+            <div>
+              <button (click)="start()">Start</button>
+            </div>
+          </div>
+        </div>
+        <div>
+          <label>Stop</label>
+          <div>
+            <div>
+              {{challenge.stopDate}}</div>
+            <div>
+              <button (click)="stop()">Stop</button>
+            </div>
+          </div>
+        </div>
+        <div class="button-row">
+          <button (click)="add()" *ngIf="isNew">Add</button>
+          <button (click)="edit()" *ngIf="!isNew">Edit</button>
+          <button (click)="delete()" *ngIf="!isNew">Delete</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,28 @@
+.signin-card {
+    background: #fff; // background: red;
+    margin-bottom: 1em;
+    &>div {
+        display: flex;
+    }
+    &>div {
+        &>div:first-child {
+            i.fa {
+                font-size: 6em;
+                color: gold;
+                vertical-align: top;
+            }
+        }
+        &>div:last-child {
+            flex: 1;
+            justify-content: flex-start;
+            display: flex;
+            align-items: center;
+        }
+    }
+}
+
+.button-with-icon {
+    i.fa {
+        font-size: 1em;
+    }
+}

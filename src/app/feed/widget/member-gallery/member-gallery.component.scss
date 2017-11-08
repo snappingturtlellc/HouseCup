@@ -11,5 +11,10 @@
         justify-content: center;
         align-items: center;
         margin-right: .5em;
+        &.large {
+            width: auto;
+            padding: 0 1em;
+            border-radius: 25px;            
+        }
     }
 }

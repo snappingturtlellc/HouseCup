@@ -1,8 +1,53 @@
 import { Injectable } from '@angular/core';
+import { FirebaseDbService } from './firebase-db.service';
+import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
+import { AppService } from './app.service';
+import { IChallenge, Challenge } from '../class/challenge';
 
 @Injectable()
-export class ChallengeService {
+export class ChallengeService extends FirebaseDbService {
+  constructor(
+    private db: AngularFireDatabase,
+    private appService: AppService) {
+    super('challenges', db);
+  }
 
-  constructor() { }
+  private get houseKey(): string {
+    let house = this.appService.house;
+    if (house == null)
+      throw "House not set";
+    return house.$key;    
+  }
 
+  getAll(): FirebaseListObservable<any[]> {
+    this.path = 'challenges/' + this.houseKey;
+    console.log("getall members path: " + this.houseKey)
+    return super.getAll();
+  }
+
+  get(id: string): Promise<IChallenge> {
+    this.path = 'challenges/' + this.houseKey;
+    return super.get(id).then(state => new Challenge(state));
+  }
+
+  add(challenge: IChallenge): void {
+    this.path = 'challenges/' + this.houseKey;
+    super.add(challenge);
+  }
+
+  update(challenge: IChallenge) {
+    this.path = 'challenges/' + this.houseKey;
+    return super.update(challenge);
+  }
+
+  save(challenge: IChallenge) {
+    this.path = 'challenges/' + this.houseKey;
+    super.save(challenge);
+  }
+
+  delete(challenge: IChallenge): void {
+    this.path = 'challenges/' + this.houseKey;
+    super.delete(challenge);
+  }
+  
 }

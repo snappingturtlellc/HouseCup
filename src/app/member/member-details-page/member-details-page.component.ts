@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
-import { AngularFireDatabase } from 'angularfire2/database';
+import { ActivatedRoute } from '@angular/router';
 import { Member } from '../../shared/class/member';
 import { MemberService } from '../../shared/service/member.service';
+import { Location } from '@angular/common';
+import { AppService } from '../../shared/service/app.service';
 
 @Component({
   selector: 'gls-member-details-page',
@@ -16,15 +17,14 @@ export class MemberDetailsPageComponent implements OnInit {
   member: Member = new Member({});
 
   constructor(
-      private router: Router,
-      private activatedRoute: ActivatedRoute, 
-      private af: AngularFireDatabase, 
-      private memberService: MemberService) { 
-        console.log("MemberDetailsPageComponent:constructor");
-        
-      }
+    private activatedRoute: ActivatedRoute,
+    private memberService: MemberService,
+    private location: Location) {
+    console.log("MemberDetailsPageComponent:constructor");
 
-  ngOnInit() {
+  }
+
+  async ngOnInit() {
     console.log("MemberDetailsPageComponent:ngOnInit");
     let id = this.activatedRoute.snapshot.params['id'];
     if (id == 'new') {
@@ -33,23 +33,25 @@ export class MemberDetailsPageComponent implements OnInit {
       this.member = new Member({});
     }
     else {
-      this.isNew = false;      
+      this.isNew = false;
       this.memberId = id;
-      // this.memberService.get(id);
-      console.log("got member info")
-      this.memberService.getSnapshot(id).subscribe(u => {
-        this.member = u;
-      });
-    }    
+      this.member = await this.memberService.get(id);
+    }
   }
 
   add() {
     this.memberService.add(this.member);
-    this.router.navigate(['/members']);    
+    this.location.back();
   }
 
-  edit() {
-    this.memberService.update(this.member);
-    this.router.navigate(['/members']);
+  async edit() {
+    await this.memberService.update(this.member);
+    this.location.back();
   }
+
+  delete() {
+    this.memberService.delete(this.member);
+    this.location.back();
+  }
+
 }

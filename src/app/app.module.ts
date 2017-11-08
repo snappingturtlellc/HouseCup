@@ -28,8 +28,11 @@ import { ChallengesPageComponent } from './challenge/challenges-page/challenges-
 import { ChallengeDetailsPageComponent } from './challenge/challenge-details-page/challenge-details-page.component';
 
 // service
-import { AuthService } from './shared/service/auth.service';
 import { UserService } from './shared/service/user.service';
+
+// import { CurrentUserService } from './shared/service/CurrentUserService.service';
+
+
 import { MemberService } from './shared/service/member.service';
 import { TeamService } from './shared/service/team.service';
 import { ChallengeService } from './shared/service/challenge.service';
@@ -43,6 +46,18 @@ import { PostInputComponent } from './feed/widget/post-input/post-input.componen
 import { EarnedPointsComponent } from './feed/card/earned-points/earned-points.component';
 import { FirebaseHelperService } from './shared/service/firebase-helper.service';
 import { AppHeaderService } from './shared/widget/app-header/app-header.service';
+import { ChallengeCardComponent } from './feed/card/challenge-card/challenge-card.component';
+
+import { FirebaseAuthService } from './shared/service/firebase-auth.service';
+// import { CurrentUserService } from 'app/shared/service/current-user.service';
+import { RouterAuthService } from './shared/service/router-auth.service';
+import { CurrentUserService } from './shared/service/current-user.service';
+import { HouseService } from './shared/service/house.service';
+import { AppService } from './shared/service/app.service';
+import { SigninCardComponent } from './feed/card/signin-card/signin-card.component';
+import { TestPageComponent } from './test/test-page/test-page.component';
+import { FeedService } from './shared/service/feed.service';
+import { DataService } from './shared/service/data.service';
 
 @NgModule({
   declarations: [
@@ -65,7 +80,10 @@ import { AppHeaderService } from './shared/widget/app-header/app-header.service'
     PlayersPageComponent,
     MemberGalleryComponent,
     PostInputComponent,
-    EarnedPointsComponent
+    EarnedPointsComponent,
+    ChallengeCardComponent,
+    SigninCardComponent,
+    TestPageComponent
   ],
   imports: [
     BrowserModule,
@@ -76,14 +94,22 @@ import { AppHeaderService } from './shared/widget/app-header/app-header.service'
   ],
   providers: [
     AngularFireDatabase,
-    AuthService,
     UserService,
     AccountService,
     MemberService,
     TeamService,
     ChallengeService,
     FirebaseHelperService,
-    AppHeaderService    
+    AppHeaderService,    
+    RouterAuthService,
+    AngularFireDatabase,
+    FirebaseAuthService,
+    UserService,
+    CurrentUserService,
+    HouseService,
+    AppService,
+    FeedService,
+    DataService
   ],
   bootstrap: [AppComponent]
 })

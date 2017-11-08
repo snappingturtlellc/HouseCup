@@ -1,0 +1,13 @@
+-As a parent I want to sign up as a user.
+-As a parent I want to add my children as a user.
+-As a parent I want to remove my child as a user.
+As a chld I want to sign in to the app.
+As an administrator, I want CRUD ability for users.
+
+When member is created they are assigned a "housecup" email for authentication.
+
+Head of house creates an account for the house. 
+- Creates house name and password.
+- Adds members.
+Members sign in using the house name and password.
+Members have read only access.

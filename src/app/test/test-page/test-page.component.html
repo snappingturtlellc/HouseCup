@@ -1,0 +1,49 @@
+<div>
+  <div>
+    {{appService.house.houseName}} {{appService.user.name}}
+  </div>
+  <div>
+    <h2>Create A House</h2>
+    <div>
+      <input type="text" placeholder="house name" [(ngModel)]="houseName">
+      <input type="password" placeholder="password" [(ngModel)]="password">
+      <input type="text" placeholder="user name" [(ngModel)]="userName">
+      <input type="text" placeholder="email" [(ngModel)]="userEmail">
+      <button (click)="signup()">signup</button>
+      <button (click)="signin()">signin</button>
+      <button (click)="signout()">signout</button>
+    </div>
+  </div>
+  <div>
+    <h2>Add Members</h2>
+    <div>
+      <button (click)="addAmy()">Add Amy</button>
+      <button (click)="addMatthew()">Add Matthew</button>
+      <button (click)="addEmily()">Add Andrew</button>
+    </div>
+  </div>
+  <div>
+    <h2>Add Challenge</h2>
+    <div>
+      <input type="text" [(ngModel)]="challengeName">
+      <button (click)="addChallenge()">Create</button>
+    </div>
+  </div>
+  <div>
+    <h2>Add Points</h2>
+    <div>
+      <div>
+        <input type="text" [(ngModel)]="amyPoints">
+        <button (click)="addAmyPoints()">Add</button>
+      </div>
+      <div>
+          <input type="text" [(ngModel)]="mattPoints">
+          <button (click)="addMattPoints()">Add</button>
+        </div>
+        <div>
+            <input type="text" [(ngModel)]="andrewPoints">
+            <button (click)="addAndrewPoints()">Add</button>
+          </div>
+          </div>
+  </div>
+</div>

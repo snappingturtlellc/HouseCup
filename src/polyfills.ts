@@ -14,6 +14,9 @@
  * Learn more in https://angular.io/docs/ts/latest/guide/browser-support.html
  */
 
+import 'zone.js';
+import 'reflect-metadata';
+
 /***************************************************************************************************
  * BROWSER POLYFILLS
  */

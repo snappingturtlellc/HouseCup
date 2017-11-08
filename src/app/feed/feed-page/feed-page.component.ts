@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { CurrentUserService } from '../../shared/service/current-user.service';
+import { AppService } from '../../shared/service/app.service';
 
 @Component({
   selector: 'gls-feed-page',
@@ -7,7 +9,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FeedPageComponent implements OnInit {
 
-  constructor() { }
+  constructor(private appService: AppService) { }
 
   ngOnInit() {
   }

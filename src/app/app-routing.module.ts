@@ -10,6 +10,9 @@ import { ChallengesPageComponent } from './challenge/challenges-page/challenges-
 import { FeedPageComponent } from './feed/feed-page/feed-page.component';
 import { PlayersPageComponent } from './player/players-page/players-page.component';
 import { MemberDetailsPageComponent } from './member/member-details-page/member-details-page.component';
+import { RouterAuthService } from './shared/service/router-auth.service';
+import { TestPageComponent } from './test/test-page/test-page.component';
+import { ChallengeDetailsPageComponent } from './challenge/challenge-details-page/challenge-details-page.component';
 
 const routes: Routes = [
   {
@@ -38,7 +41,7 @@ const routes: Routes = [
     component: MembersPageComponent
   },
   {
-    path: 'memberdetails/:id',
+    path: 'member/:id',
     component: MemberDetailsPageComponent
   },
   {
@@ -50,13 +53,22 @@ const routes: Routes = [
     component: ChallengesPageComponent
   },
   {
+    path: 'challenge/:id',
+    component: ChallengeDetailsPageComponent
+  },
+  {
     path: 'feed',
-    component: FeedPageComponent
+    component: FeedPageComponent,
+    //canActivate: [RouterAuthService]
   },
   {
     path: 'players',
     component: PlayersPageComponent
 
+  },
+  {
+    path: 'test',
+    component: TestPageComponent
   }
 ];
 

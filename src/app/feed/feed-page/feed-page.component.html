@@ -1,7 +1,14 @@
 <div id="feed-page">
+  <div>
+    {{appService.houseName}} 
+    {{appService.userName}}
+  </div>
   <gls-member-gallery></gls-member-gallery>
   <gls-post-input></gls-post-input>
+  <gls-challenge-card></gls-challenge-card>
+  <gls-signin-card></gls-signin-card>
   <div *ngFor="let c of cards">
     {{c.name}}
   </div>
+  <div>&nbsp;</div>
 </div>

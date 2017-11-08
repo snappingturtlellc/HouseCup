@@ -26,9 +26,9 @@ export class UserDetailsPageComponent implements OnInit {
         this.isNew = false;      
         this.userId = id;
         this.userService.get(id);
-        this.userService.getSnapshot(id).subscribe(u => {
-          this.user = u;
-        });
+        // this.userService.getSnapshot(id).subscribe(u => {
+        //   this.user = u;
+        // });
       }    
       
       this.user.email = "admin@housecup.com";

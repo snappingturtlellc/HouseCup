@@ -1,0 +1,78 @@
+https://www.firebase.com/docs/web/guide/structuring-data.html
+
++house
+    +$house key
+        -name
+        -email
+        -currentUserKey
+
++users
+    +$house key
+        -name
+        -email
+
++challenge
+    +$house key
+        -name
+        -description
+----
+{
+    houses: {
+        $tigers: {
+            name: tigers
+            members: {
+                dad: {
+                    name: ""
+                    email: ""
+                }
+            }
+            challenges: {
+                name: ""
+                members: {
+                    dad: {                        
+                        points: 0
+                    }
+                }
+            }
+        }
+    }
+}
+
+// Tracking two-way relationships between users and groups
+  {
+    "users": {
+      "dad": {
+        "name": "Mike Sharp",
+        // index dad's groups in her profile
+        "houses": {
+           // the value here doesn't matter, just that the key exists
+           "texas": true,
+           "utah": true
+        }
+      },
+      ...
+    },
+    "houses": {
+      "texas": {
+        "name": "Texas House",
+        "members": {
+          "dad": true,
+          "mom": true
+        },
+        "challenges": {
+
+        }
+      },
+      ...
+    }    
+    "challenges": {
+      "texas": {
+        "name": "Read BOM in 100 days",
+        "members": {
+          "dad": true,
+          "mom": true
+        }
+      },
+      ...
+    }
+  }

@@ -1,44 +1,37 @@
 import { Injectable } from '@angular/core';
+import { AngularFireDatabase } from 'angularfire2/database';
+import { FirebaseDbService } from './firebase-db.service';
 import { Observable } from 'rxjs/Observable';
-import { AngularFireDatabase, FirebaseListObservable, FirebaseObjectObservable } from 'angularfire2/database';
-import { IUser, User } from 'app/shared/class/user';
+import { IUser, User } from '../class/user';
+import { IHouse } from '../class/house';
 
 @Injectable()
-export class UserService {
+export class UserService extends FirebaseDbService {
 
-  users$: FirebaseListObservable<any[]> = null;;
-
-  constructor(private af: AngularFireDatabase) {
-  } 
-
-  getAll(): FirebaseListObservable<any[]> {
-    if (this.users$ == null) {
-      this.users$ = this.af.list('/users');      
-    }
-    return this.users$;
+  constructor(private db: AngularFireDatabase) {
+    super('users', db);
   }
 
-  get(id: string): FirebaseObjectObservable<any> {
-    return this.af.object('/users/' + id);
+  get(id: string): Promise<IUser> {
+    return super.get(id).then(state => new User(state));
   }
-  getSnapshot(id: string) {
-    return Observable.create(observer => {
-      this.af.object('/users/' + id).subscribe(snapshot => {
-        var u = new User(snapshot);
-        observer.next(u);
+
+  getByEmail(email: string): Promise<IUser> {
+    return new Promise<IUser>((resolve, reject) => {
+      this.db.object(this.path).$ref.orderByChild('email').equalTo(email).once('value', function (snap) {
+        let value = snap.val();
+        if (value == null) {
+          resolve(null);
+        }
+        else {
+          resolve(new User(value));
+        }
       });
-    });  
+    });
   }
 
-  add(user: User): void {
-    this.getAll().push(user.toFirebase());    
-  }
-
-  update(user: User): void {
-//    this.af.object('/users/' + user.$key).update(user.toFirebase());
-  }
-
-  delete(user: IUser): void {
-    this.af.object('/users/' + user.$key).remove();
+  addHouse(user: IUser, house: IHouse) {
+    user._housesRef[house.$key] = true;
+    user.$houses.push(house);
   }
 }

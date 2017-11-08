@@ -1,14 +1,29 @@
-<h1>Sign In</h1>
-<div>
-  <form>
+<div class="form-input-page">
+  <div>
+    <h1>Sign In</h1>
     <div>
-      <input type="text" name="username" placeholder="user name" [(ngModel)]="username">
+      <form>
+        <div>
+            <label>House Name</label>
+            <input type="text" name="houseName" placeholder="houseName" [(ngModel)]="houseName">
+          </div>
+          <div>
+            <label>Password</label>
+            <input type="password" name="password" placeholder="password" [(ngModel)]="password">
+          </div>
+          <div class="button-row">
+            <button (click)="signin()">Sign In</button> <a [routerLink]="['/signup']">Sign Up</a>
+          </div>
+      </form>
+      <!-- <div>
+    <h1>House Member</h1>
+    <div>
+      <input type="text" placeholder="pass code" [(ngModel)]="passcode">
     </div>
     <div>
-      <input type="password" name="password" placeholder="password" [(ngModel)]="password">
+      <button (click)="signinMember()">sign in</button>
     </div>
-    <div>
-      <button (click)="signin()">signin</button>
+  </div> -->
     </div>
-  </form>
+  </div>
 </div>

@@ -1,16 +1,26 @@
-<h1>Member</h1>
-<div>{{memberId}}</div>
-<div>
-  <form>
+<div class="form-input-page">
+  <div>
+    <h1>Member</h1>
     <div>
-      <input type="text" name="name" placeholder="name" [(ngModel)]="member.name">
+      <form>
+        <div>
+            <label>Name</label>
+          <input type="text" name="name" placeholder="" [(ngModel)]="member.name">
+        </div>
+        <div>
+            <label>Initials</label>
+          <input type="text" name="initials" placeholder="" [(ngModel)]="member.initials">
+        </div>
+        <div>
+            <label>Passcode</label>
+          <input type="text" name="passcode" placeholder="" [(ngModel)]="member.passcode">
+        </div>
+        <div class="button-row">
+          <button (click)="add()" *ngIf="isNew">Add</button>
+          <button (click)="edit()" *ngIf="!isNew">Edit</button>
+          <button (click)="delete()" *ngIf="!isNew">Delete</button>
+        </div>
+      </form>
     </div>
-    <div>
-      <input type="text" name="initials" placeholder="initals" [(ngModel)]="member.initials">
-    </div>
-    <div>
-      <button (click)="add()" *ngIf="isNew">add</button>
-      <button (click)="edit()" *ngIf="!isNew">edit</button>
-    </div>
-  </form>
+  </div>
 </div>

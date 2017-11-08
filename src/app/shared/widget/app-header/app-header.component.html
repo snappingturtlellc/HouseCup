@@ -1,8 +1,10 @@
 <div id="app-header">
-  <div></div>
+  <div>{{appService.houseName}}</div>
   <div>
     <i class="fa fa-trophy"></i> {{appHeaderService.pageName}}</div>
   <div>
-    <i class="fa fa-bars"></i>
+    <!-- {{apService.user.name}} -->
+    <!-- <i class="fa fa-bars" (click)="signout()"></i> -->
+    <span  (click)="signout()">{{appService.userName}}</span>
   </div>
 </div>

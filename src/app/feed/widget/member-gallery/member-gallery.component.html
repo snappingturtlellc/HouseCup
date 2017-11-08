@@ -1,3 +1,4 @@
 <div class="member-gallery">
-  <div *ngFor="let m of (members$ | async)">{{m.initials}}</div>
+  <div *ngFor="let m of members$ | async" (click)="edit(m)">{{m.initials}}</div> 
+  <div class="large" (click)="add()"><i class="fa fa-plus"></i> Add Member</div>
 </div>
