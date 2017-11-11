@@ -25,7 +25,6 @@ export class MemberService extends FirebaseDbService {
 
   getAll(): FirebaseListObservable<any[]> {
     this.path = 'members/' + this.houseKey;
-    console.log("getall members path: " + this.houseKey)
     return super.getAll();
   }
 
@@ -55,3 +54,10 @@ export class MemberService extends FirebaseDbService {
   }
   
 }
+
+// FIX CIRCULAR DEPENDENCY, MOVE APPSERVICE LOGIC TO APP COMPONENT, 
+// GET A LIST OF CHALLENGE MEMBER POINTS
+// DISPLAY POINTS
+// CLEAN UP CODE
+// RELEASE ROUGH BETA VERSION
+// USE APP, CLEAN CARPETS, PARK CAR IN GARAGE

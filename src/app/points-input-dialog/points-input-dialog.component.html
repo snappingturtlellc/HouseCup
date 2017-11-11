@@ -1,0 +1,14 @@
+<div id="add-points-dialog" *ngIf="visible">
+    <div>
+      <h2>Add Points</h2>
+      <h2>{{member.name}}</h2>
+      <div class="member-icon">{{member.initials}}</div>
+      <div>
+        <input type="number" [(ngModel)]="numberOfPoints" />
+      </div>
+      <div>
+        <button (click)="submit()">Ok</button>
+        <button (click)="cancel()">Cancel</button>
+      </div>
+    </div>
+  </div>

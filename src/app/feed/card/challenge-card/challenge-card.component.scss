@@ -1,25 +1,69 @@
 .challenge-card {
     background: #fff; // background: red;
     margin-bottom: 1em;
+    width: 100%;
+    overflow: hidden;
     &>div {
-        display: flex;
-    }
-    &>div {
-        &>div:first-child {
-            i.fa {
-                font-size: 6em;
-                color: gold;
-                vertical-align: top;
+        display: block;
+        white-space: nowrap;
+        transform: translateX(0);
+        transition: transform 300ms ease;
+        &>div {
+            // challenge slide
+            width: 100%;
+            display: inline-flex;
+            flex-direction: column;
+            height: 100px; //padding: 1em;
+            box-sizing: border-box;
+            .slide-content {
+                display: flex;
+                &>div:first-child {
+                    display: flex;
+                    flex-direction: row;
+                    align-items: center;
+                    i.fa {
+                        font-size: 6em;
+                        color: gold;
+                        vertical-align: top;
+                    }
+                }
+                &>div:last-child {
+                    font-size: .8em;
+                    padding: 1em;
+                    flex: 1;
+                    &>div:first-child {
+                        font-size: 1.3em;
+                        font-weight: bold;
+                        margin-bottom: 1em;
+                    }
+                }
+            }
+            .slide-navigation {
+                display: flex;
+                justify-content: center;
+                i.fa {
+                    font-size: 2em;
+                    margin: 0 .2em;
+                    color: #aaa;
+                }
             }
         }
-        &>div:last-child {
-            flex: 1;
-            text-align: center;
-            justify-content: center;
-            display: flex;
-            flex-direction: column;
-        }
-    }
+    } // &>div {
+    //     &>div:first-child {
+    //         i.fa {
+    //             font-size: 6em;
+    //             color: gold;
+    //             vertical-align: top;
+    //         }
+    //     }
+    //     &>div:last-child {
+    //         flex: 1;
+    //         text-align: center;
+    //         justify-content: center;
+    //         display: flex;
+    //         flex-direction: column;
+    //     }
+    // }
 }
 
 .button-with-icon {

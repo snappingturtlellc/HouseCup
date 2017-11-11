@@ -1,0 +1,53 @@
+#add-points-dialog {
+    background: rgba(0,0,0,.2);
+    position: absolute;    
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    &>div {
+        background: #fff;
+        // position: absolute;
+        // top: 30px;
+        // margin: 0 auto;
+        // border: 1px solid #aaa;
+        background: #fff;
+        padding: 1em;
+        border-radius: 20px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        &>div {
+            margin-bottom: .5em;
+        }
+        .member-icon {
+            border-radius: 50%;
+            background: #ccc;
+            width: 3em;
+            height: 3em;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        input {
+            padding: .5em;
+            border-radius: 10px;
+            background: #fff;
+            border: 1px solid #aaa;
+            text-align: center;
+            width: 100px;
+            font-size: 1.5em;
+        }
+        h1,
+        h2 {
+            margin: 0
+        }
+    }
+    &.open {
+        display: flex;
+    }
+}

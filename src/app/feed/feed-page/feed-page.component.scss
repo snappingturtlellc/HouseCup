@@ -1,7 +1,8 @@
 #feed-page {
     background: #ccc;
-    & > * {
+    &>* {
         margin-bottom: .5em;
         display: block;
     }
 }
+

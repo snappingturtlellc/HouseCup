@@ -83,7 +83,7 @@ git init
 git add .
 git commit -m "First commit"
 git remote add origin https://github.com/snappingturtlellc/HouseCup.git
-git push -u origin master
+
 
 // admin retrieve database
 https://firebase.google.com/docs/database/admin/retrieve-data

@@ -5,11 +5,15 @@ import { IHouse, House } from '../class/house';
 import { IUser } from '../class/user';
 import { Observable } from 'rxjs/Observable';
 import { UserService } from './user.service';
+import { IChallenge } from '../class/challenge';
+import { ChallengeService } from './challenge.service';
+import { AppService } from './app.service';
 
 
 @Injectable()
 export class HouseService extends FirebaseDbService {
-  constructor(private db: AngularFireDatabase) {
+  constructor(
+    private db: AngularFireDatabase) {
     super('houses', db);
   }
 
@@ -93,8 +97,18 @@ export class HouseService extends FirebaseDbService {
     house._currentUserRef = user.$key;
     house.$currentUser = user;
   }
-  async getCurrentUser(house: IHouse): Promise<IUser> {
-    let userService = new UserService(this.db);
-    return userService.get(house._currentUserRef);
-  }
+  // async getCurrentUser(house: IHouse): Promise<IUser> {
+  //   let userService = new UserService(this.db);
+  //   return userService.get(house._currentUserRef);
+  // }
+  // async setCurrentChallenge(house: IHouse, challenge: IChallenge) {
+  //   house._currentChallengeRef = challenge.$key;
+  //   house.$currentChallenge = challenge;
+  //   await super.update(house);
+  // }
+  // async getCurrentChallenge(house: IHouse): Promise<IChallenge> {
+  //   let challengeService = new ChallengeService(this.db);
+  //   challengeService.setHouse(house);
+  //   return challengeService.get(house._currentChallengeRef);
+  // }
 }

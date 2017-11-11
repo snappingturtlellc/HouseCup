@@ -58,6 +58,7 @@ import { SigninCardComponent } from './feed/card/signin-card/signin-card.compone
 import { TestPageComponent } from './test/test-page/test-page.component';
 import { FeedService } from './shared/service/feed.service';
 import { DataService } from './shared/service/data.service';
+import { PointsInputDialogComponent } from './points-input-dialog/points-input-dialog.component';
 
 @NgModule({
   declarations: [
@@ -83,7 +84,8 @@ import { DataService } from './shared/service/data.service';
     EarnedPointsComponent,
     ChallengeCardComponent,
     SigninCardComponent,
-    TestPageComponent
+    TestPageComponent,
+    PointsInputDialogComponent
   ],
   imports: [
     BrowserModule,

@@ -42,18 +42,30 @@ body {
                     margin-right: .5em;
                 }
             }
-            button {
-                border: none;
-                padding: .5em 1em;
-                border-radius: 4px;
-                background: $button-background;
-                color: $button-color;
-                font-size: 1em;
-                &.link {
-                    background: none;
-                    color: #000;
-                }
-            }
+            // button {
+            //     border: none;
+            //     padding: .5em 1em;
+            //     border-radius: 4px;
+            //     background: $button-background;
+            //     color: $button-color;
+            //     font-size: 1em;
+            //     &.link {
+            //         background: none;
+            //         color: #000;
+            //     }
+            // }
         }
+    }
+}
+button {
+    border: none;
+    padding: .5em 1em;
+    border-radius: 4px;
+    background: $button-background;
+    color: $button-color;
+    font-size: 1em;
+    &.link {
+        background: none;
+        color: #000;
     }
 }

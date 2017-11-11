@@ -3,11 +3,14 @@ import { FirebaseDbService } from './firebase-db.service';
 import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
 import { AppService } from './app.service';
 import { IChallenge, Challenge } from '../class/challenge';
+import { IHouse } from '../class/house';
+import { IMember } from '../class/member';
 
 @Injectable()
 export class ChallengeService extends FirebaseDbService {
+  
   constructor(
-    private db: AngularFireDatabase,
+    private db: AngularFireDatabase, 
     private appService: AppService) {
     super('challenges', db);
   }
@@ -18,10 +21,13 @@ export class ChallengeService extends FirebaseDbService {
       throw "House not set";
     return house.$key;    
   }
+  // _house: IHouse = null;
+  // setHouse(house: IHouse) {
+  //   this._house = house;
+  // }
 
   getAll(): FirebaseListObservable<any[]> {
     this.path = 'challenges/' + this.houseKey;
-    console.log("getall members path: " + this.houseKey)
     return super.getAll();
   }
 
@@ -49,5 +55,12 @@ export class ChallengeService extends FirebaseDbService {
     this.path = 'challenges/' + this.houseKey;
     super.delete(challenge);
   }
-  
+
+  async addPoints(challenge: IChallenge, member: IMember, numberOfPoints: number) {
+    challenge._memberPointsRef[member.$key] = numberOfPoints;
+    await this.update(challenge);
+  }
+  getPoints(challenge: IChallenge) {
+
+  }
 }
