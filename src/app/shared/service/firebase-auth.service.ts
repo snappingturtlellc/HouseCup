@@ -130,10 +130,11 @@ export class FirebaseAuthService  {
 
   emailSignin(email: string, password: string) {
     return this.afAuth.auth.signInWithEmailAndPassword(email, password)
-      .then((user) => {
+      .then(user => {
         this.authState = user
         // this.updateUserData()
         console.log("user logged in with email:" + email);        
+        return user;
       })
       .catch(error => console.log(error));
   }

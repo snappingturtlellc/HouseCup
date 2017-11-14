@@ -11,19 +11,13 @@
             <label>Password</label>
             <input type="password" name="password" placeholder="password" [(ngModel)]="password">
           </div>
+          <div class="error-message">
+            {{errorMessage}}
+          </div>
           <div class="button-row">
             <button (click)="signin()">Sign In</button> <a [routerLink]="['/signup']">Sign Up</a>
           </div>
       </form>
-      <!-- <div>
-    <h1>House Member</h1>
-    <div>
-      <input type="text" placeholder="pass code" [(ngModel)]="passcode">
-    </div>
-    <div>
-      <button (click)="signinMember()">sign in</button>
-    </div>
-  </div> -->
     </div>
   </div>
 </div>

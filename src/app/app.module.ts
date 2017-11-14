@@ -59,6 +59,9 @@ import { TestPageComponent } from './test/test-page/test-page.component';
 import { FeedService } from './shared/service/feed.service';
 import { DataService } from './shared/service/data.service';
 import { PointsInputDialogComponent } from './points-input-dialog/points-input-dialog.component';
+import { LeaderBoardCardComponent } from './feed/card/leader-board-card/leader-board-card.component';
+import { SortPipe } from './shared/pipe/sort.pipe';
+import { SortByPointsAndNamePipe } from './shared/pipe/sort-by-points-and-name.pipe';
 
 @NgModule({
   declarations: [
@@ -85,7 +88,10 @@ import { PointsInputDialogComponent } from './points-input-dialog/points-input-d
     ChallengeCardComponent,
     SigninCardComponent,
     TestPageComponent,
-    PointsInputDialogComponent
+    PointsInputDialogComponent,
+    LeaderBoardCardComponent,
+    SortPipe,
+    SortByPointsAndNamePipe
   ],
   imports: [
     BrowserModule,

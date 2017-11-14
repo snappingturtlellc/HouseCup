@@ -1,0 +1,19 @@
+:host {
+    background: #fff;
+    display: block;
+    padding: 1em;
+}
+
+
+.column-list {
+    &.columns-two {
+        columns: 2;
+    }
+    &>div{
+        margin-bottom: .2em;
+        display: flex;
+        justify-content: space-between;
+        background: #eee;
+
+    }
+}

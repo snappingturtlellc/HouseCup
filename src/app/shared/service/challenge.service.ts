@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { FirebaseDbService } from './firebase-db.service';
-import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
+import { AngularFireDatabase, FirebaseListObservable, FirebaseObjectObservable } from 'angularfire2/database';
 import { AppService } from './app.service';
 import { IChallenge, Challenge } from '../class/challenge';
 import { IHouse } from '../class/house';
@@ -60,7 +60,7 @@ export class ChallengeService extends FirebaseDbService {
     challenge._memberPointsRef[member.$key] = numberOfPoints;
     await this.update(challenge);
   }
-  getPoints(challenge: IChallenge) {
-
+  getMembers(challenge: IChallenge): FirebaseObjectObservable<any[]> {
+    return this.db.object('challenges/' + this.houseKey + '/' + challenge.$key + '/_memberPointsRef')
   }
 }
