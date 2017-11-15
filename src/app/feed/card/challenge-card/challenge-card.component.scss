@@ -1,73 +1,50 @@
-.challenge-card {
-    background: #fff; // background: red;
-    margin-bottom: 1em;
-    width: 100%;
-    overflow: hidden;
-    &>div {
-        display: block;
-        white-space: nowrap;
-        transform: translateX(0);
-        transition: transform 300ms ease;
-        &>div {
-            // challenge slide
-            width: 100%;
-            display: inline-flex;
-            flex-direction: column;
-            height: 100px; //padding: 1em;
-            box-sizing: border-box;
-            .slide-content {
-                display: flex;
-                &>div:first-child {
-                    display: flex;
-                    flex-direction: row;
-                    align-items: center;
-                    i.fa {
-                        font-size: 6em;
-                        color: gold;
-                        vertical-align: top;
-                    }
-                }
-                &>div:last-child {
-                    font-size: .8em;
-                    padding: 1em;
-                    flex: 1;
-                    &>div:first-child {
-                        font-size: 1.3em;
-                        font-weight: bold;
-                        margin-bottom: 1em;
-                    }
-                }
-            }
-            .slide-navigation {
-                display: flex;
-                justify-content: center;
-                i.fa {
-                    font-size: 2em;
-                    margin: 0 .2em;
-                    color: #aaa;
-                }
-            }
-        }
-    } // &>div {
-    //     &>div:first-child {
-    //         i.fa {
-    //             font-size: 6em;
-    //             color: gold;
-    //             vertical-align: top;
-    //         }
-    //     }
-    //     &>div:last-child {
-    //         flex: 1;
-    //         text-align: center;
-    //         justify-content: center;
-    //         display: flex;
-    //         flex-direction: column;
-    //     }
-    // }
+:host {
+    background: #fff;
+    display: flex;
+    flex-direction: column;
+    position: relative;
 }
 
-.button-with-icon {
-    i.fa {
-        font-size: 1em;
+.slide-container {
+    display: flex;
+    overflow: auto;
+    overflow: hidden;
+    &>div {
+        min-width: 100%;
     }
+    &>div:first-child {
+        //background: red;
+    }
+}
+
+.slide-panel {
+    display: flex;
+    justify-content: space-between;
+    &>div {
+        padding: .2em;
+    }
+    &>div:first-child {
+        i.fa {
+            font-size: 6em;
+            color: gold;
+            vertical-align: top;
+        }
+    }
+    &>div:last-child {
+        flex: 1;
+        text-align: top;
+        h1 {
+            margin-top: 0;
+            margin-bottom: .1em;
+        }
+        p {
+            margin-top: 0;
+        }
+    }
+}
+
+.menu-button {
+    position: absolute;
+    top: .5em;
+    right: .5em;
 }

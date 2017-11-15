@@ -1,38 +1,25 @@
-<div class="challenge-card">
-  <div>
-    <div *ngFor="let c of challenges$ | async" (click)="edit(c)" class="challenge-item">
-      <div class="slide-content">
-        <div>
-          <i class="fa fa-trophy"></i>
-        </div>
-        <div>
-          <div>{{c.name}}</div>
-          <div>{{c.description}}</div>
-          <div>
-            <div *ngFor="let mp of memberPoints">
-              a
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="slide-navigation">
-        <i class="fa fa-arrow-circle-left" (click)="challengeSlideLeft(c)"></i>
-        <i class="fa fa-arrow-circle-up" (click)="challengeSelect(c)"></i>
-        <i class="fa fa-arrow-circle-right" (click)="challengeSlideRight(c)"></i>
-      </div>
+
+
+<div class="slide-container">
+  <div *ngFor="let c of challenges$ | async" (click)="edit(c)" class="slide-panel">
+    <div>
+      <i class="fa fa-trophy"></i>
+    </div>
+    <div>
+      <h1>{{c.name}}</h1>
+      <p>{{c.description}}</p>
     </div>
   </div>
 </div>
-<!-- <div>
-  <div>
-    <i class="fa fa-trophy"></i>
-  </div>
-  <div>
-    <div>No Challenge</div>
-    <div>
-      <button [routerLink]="['/challenge/new']" class="button-with-icon">
-        <i class="fa fa-plus"></i> Add</button>
-    </div>
-  </div>
-  <div *ngFor="let c of challenges$ | async" (click)="edit(c)">{{c.name}}</div>
-</div> -->
+<gls-leader-board-card></gls-leader-board-card>
+<div class="menu-button" (click)="goChallenges()">
+  <i class="fa fa-bars"></i>
+</div>
+
+
+<!-- <div class="slide-navigation">
+        <i class="fa fa-arrow-circle-left" (click)="challengeSlideLeft(c)"></i>
+        <i class="fa fa-arrow-circle-up" (click)="challengeSelect(c)"></i>
+        <i class="fa fa-arrow-circle-right" (click)="challengeSlideRight(c)"></i>
+      </div> -->
+

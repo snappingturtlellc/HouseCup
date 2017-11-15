@@ -1,10 +1,14 @@
+<gls-member-gallery></gls-member-gallery>
+<gls-challenge-card></gls-challenge-card>
+
 <div id="feed-page">
+  <div>
+    Recent Events
+  </div>
+  
   <!-- <div>
     {{appService.houseName}}, {{appService.userName}}, {{appService.challengeName}}
   </div> -->
-  <gls-challenge-card></gls-challenge-card>
-  <gls-member-gallery></gls-member-gallery>
-  <gls-leader-board-card></gls-leader-board-card>
   <!-- <gls-post-input></gls-post-input>
   <gls-signin-card></gls-signin-card> -->
   <div *ngFor="let c of appService.feed$ | async" class="card">

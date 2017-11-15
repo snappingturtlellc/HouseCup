@@ -1,20 +1,14 @@
-.member-gallery {
+:host>div {
     display: flex;
-    padding: .5em;
+    flex-direction: row;
+    justify-content: space-between;
     background: #fff;
     &>div {
-        border-radius: 50%;
-        background: #ccc;
-        width: 3em;
-        height: 3em;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        margin-right: .5em;
-        &.large {
-            width: auto;
-            padding: 0 1em;
-            border-radius: 25px;            
-        }
+        padding: .5em;                
+    }
+    &>div:first-child {
+        display: flex;   
+        flex: 1;     
+        overflow: auto;
     }
 }

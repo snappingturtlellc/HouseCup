@@ -80,3 +80,31 @@ button {
     padding: 1em;
     margin-bottom: 1em;
 }
+
+.avatar {
+    border-radius: 50%;
+    background: #ccc;
+    width: 3em;
+    min-width: 3em;
+    height: 3em;
+    min-height: 3em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: .5em;
+    cursor: pointer;
+}
+
+.menu-button {
+    border-radius: 50%;
+    background: #ccc;
+    width: 3em;
+    min-width: 3em;
+    height: 3em;
+    min-height: 3em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    
+}

@@ -1,4 +1,8 @@
-<div class="member-gallery">
-  <div *ngFor="let m of appService.members$ | async" (click)="edit(m)">{{m.initials}}</div> 
-  <div class="large" (click)="add()"><i class="fa fa-plus"></i> Add Member</div>
+<div>
+  <div>
+    <div *ngFor="let m of appService.members$ | async" (click)="addPoints(m)" class="avatar">{{m.initials}}</div>
+  </div>
+  <div>
+    <div (click)="goMembers()" class="menu-button"><i class="fa fa-bars"></i></div>
+  </div>
 </div>
